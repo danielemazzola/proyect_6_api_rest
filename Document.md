@@ -29,12 +29,6 @@ app.delete('/delete/:\_id', deletePeople), Delet Characters.
 app.get('/children', allChildren), Get all Characters.
 app.post('/children/register', registerChildren), register Characters.
 
-### API KEY:
-
-```sh
-DB_URL:mongodb+srv://mazzoladaniele:firstbbdd@cluster0.fewxfsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-```
-
 ## The commands to start the project:
 
 npm run start: "node index.js".
