@@ -16,7 +16,7 @@ The routes for the API requests are:
 
 ### ROUTES PEOPLE:
 
-app.get('/', allPeople), Get all Characters.
+app.get('/', allPeople), Get all Characters + populate them with their children, extracting the username of each child..
 
 app.post('/register', registerPeople), Register Characters.
 
@@ -27,6 +27,7 @@ app.delete('/delete/:\_id', deletePeople), Delet Characters.
 ### ROUTES CHILDRENS:
 
 app.get('/children', allChildren), Get all Characters.
+
 app.post('/children/register', registerChildren), register Characters.
 
 ## The commands to start the project:
