@@ -6,7 +6,7 @@ const allChildren = async (req, res, next) => {
   const OK = 'Todos los niños aqui👶👧'
   const KO = 'No hay niños aún registrados😢'
   try {
-    const childrens = await Children.find()
+    const childrens = await Children.find().populate('idParent')
     if (childrens.length <= 0) {
       return res.status(200).json({ message: KO })
     } else {
