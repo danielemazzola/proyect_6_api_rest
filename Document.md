@@ -29,9 +29,7 @@ app.get('/', allPeople), Get all Characters.
 app.get('/children', allChildren), Get all Characters.
 app.post('/children/register', registerChildren), register Characters.
 
-//END ROUTES CHILDRENS
-
-API KEY:
+### API KEY:
 
 ```sh
 DB_URL:mongodb+srv://mazzoladaniele:firstbbdd@cluster0.fewxfsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
@@ -39,9 +37,9 @@ DB_URL:mongodb+srv://mazzoladaniele:firstbbdd@cluster0.fewxfsi.mongodb.net/?retr
 
 ## The commands to start the project:
 
--npm run start: "node index.js",
--npm run dev: "nodemon index.js" _RECOMMENDED_
--seed": "node utils/seed/family.seed.js"
+npm run start: "node index.js".
+npm run dev: "nodemon index.js".
+seed": "node utils/seed/family.seed.js".
 
 ## CONDITIONS TO REGISTER
 
