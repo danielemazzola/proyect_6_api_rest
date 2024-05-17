@@ -38,7 +38,9 @@ DB_URL:mongodb+srv://mazzoladaniele:firstbbdd@cluster0.fewxfsi.mongodb.net/?retr
 ## The commands to start the project:
 
 npm run start: "node index.js".
+
 npm run dev: "nodemon index.js".
+
 seed": "node utils/seed/family.seed.js".
 
 ## CONDITIONS TO REGISTER
