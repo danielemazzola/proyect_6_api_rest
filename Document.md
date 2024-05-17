@@ -14,7 +14,8 @@ We can view all characters, create new characters, edit them, and delete them, k
 
 The routes for the API requests are:
 
-\*ROUTES PEOPLE:
+### ROUTES PEOPLE:
+
 app.get('/', allPeople), Get all Characters.
 
 -app.post('/register', registerPeople), Register Characters.
@@ -23,9 +24,8 @@ app.get('/', allPeople), Get all Characters.
 
 -app.delete('/delete/:\_id', deletePeople), Delet Characters.
 
-END ROUTES PEOPLE
+### ROUTES CHILDRENS:
 
-\*ROUTES CHILDRENS
 app.get('/children', allChildren), Get all Characters.
 app.post('/children/register', registerChildren), register Characters.
 
