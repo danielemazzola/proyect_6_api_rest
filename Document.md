@@ -18,11 +18,11 @@ The routes for the API requests are:
 
 app.get('/', allPeople), Get all Characters.
 
--app.post('/register', registerPeople), Register Characters.
+app.post('/register', registerPeople), Register Characters.
 
--app.put('/edit/:\_id', updatePeople), Edit Characters.
+app.put('/edit/:\_id', updatePeople), Edit Characters.
 
--app.delete('/delete/:\_id', deletePeople), Delet Characters.
+app.delete('/delete/:\_id', deletePeople), Delet Characters.
 
 ### ROUTES CHILDRENS:
 
