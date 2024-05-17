@@ -14,37 +14,27 @@ We can view all characters, create new characters, edit them, and delete them, k
 
 The routes for the API requests are:
 
-//ROUTES PEOPLE
--app.get('/', allPeople) _Get all Characters_
--app.post('/register', registerPeople) _Register Characters_
-Example:
-{
-"userName": "Crillin",
-"alias": "príncipe",
-"name": "Carlos",
-"age": "18"
-}
--app.put('/edit/:\_id', updatePeople) _Edit Characters_
--app.delete('/delete/:\_id', deletePeople) _Delet Characters_
-//END ROUTES PEOPLE
+\*ROUTES PEOPLE:
+app.get('/', allPeople), Get all Characters.
 
-//ROUTES CHILDRENS
--app.get('/children', allChildren) _Get all Characters_
--app.post('/children/register', registerChildren) _register Characters_
-Example:
-{
-"userName":"Marron",
-"alias":"hija",
-"name":"Fernanda",
-"age":"8",
-"parent":"Crillin"
-}
+-app.post('/register', registerPeople), Register Characters.
+
+-app.put('/edit/:\_id', updatePeople), Edit Characters.
+
+-app.delete('/delete/:\_id', deletePeople), Delet Characters.
+
+END ROUTES PEOPLE
+
+\*ROUTES CHILDRENS
+app.get('/children', allChildren), Get all Characters.
+app.post('/children/register', registerChildren), register Characters.
+
 //END ROUTES CHILDRENS
 
-```sh
 API KEY:
-DB_URL
-mongodb+srv://mazzoladaniele:firstbbdd@cluster0.fewxfsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+```sh
+DB_URL:mongodb+srv://mazzoladaniele:firstbbdd@cluster0.fewxfsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 ## The commands to start the project:
