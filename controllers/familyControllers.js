@@ -61,6 +61,8 @@ const deletePeople = async (req, res, next) => {
   const OK = 'Usuario Eliminado y si tenia hijos, se han ido con el.😒'
   try {
     const { _id } = req.params
+    const deletePeople = await People.findByIdAndDelete(_id)
+    if (!deletePeople) return res.status(404).json({ message: ERROR })
     const childrens = await Children.find().where('idParent').equals(_id)
     // DELETE CHILDRENS
     if (childrens.length) {
@@ -69,8 +71,6 @@ const deletePeople = async (req, res, next) => {
       })
     }
     // END DELETE CHILDRENS
-    const deletePeople = await People.findByIdAndDelete(_id)
-    if (!deletePeople) return res.status(404).json({ message: ERROR })
     return res.status(200).json({ message: OK })
   } catch (error) {
     return res.status(400).json(`Error en la petición: ${error}`)
