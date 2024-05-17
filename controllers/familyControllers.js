@@ -62,9 +62,13 @@ const deletePeople = async (req, res, next) => {
   try {
     const { _id } = req.params
     const childrens = await Children.find().where('idParent').equals(_id)
-    childrens.map(async (val) => {
-      await Children.findByIdAndDelete(val._id)
-    })
+    // DELETE CHILDRENS
+    if (childrens.length) {
+      childrens.map(async (val) => {
+        await Children.findByIdAndDelete(val._id)
+      })
+    }
+    // END DELETE CHILDRENS
     const deletePeople = await People.findByIdAndDelete(_id)
     if (!deletePeople) return res.status(404).json({ message: ERROR })
     return res.status(200).json({ message: OK })
