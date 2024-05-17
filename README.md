@@ -29,6 +29,14 @@ app.delete('/delete/:\_id', deletePeople), Delet Characters.
 app.get('/children', allChildren), Get all Characters.
 
 app.post('/children/register', registerChildren), register Characters.
+Example register:
+{
+"userName":"Ejemplo",
+"alias":"hija",
+"name":"name",
+"age":10,
+"parent":"Vegeta"
+}
 
 ## The commands to start the project:
 
