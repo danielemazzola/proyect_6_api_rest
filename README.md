@@ -1,5 +1,4 @@
-````markdown
-# 🎸 Proyecto 8 Rock the Code 🎸
+# 🎸 Proyecto 6 Rock the Code 🎸
 
 ## 🚀 Technologies Used
 
@@ -19,6 +18,7 @@
     "nodemon": "^3.1.0"
   }
 ```
+
 ````
 
 ## 📜 Scripts
@@ -87,5 +87,4 @@ Work done by Daniele Mazzola
 🔗 [GitHub Repository](https://github.com/danielemazzola/proyect_6_api_rest)
 
 ```
-
-```
+````
