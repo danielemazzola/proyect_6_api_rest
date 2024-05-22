@@ -15,8 +15,7 @@ const PeopleSchema = new Schema(
     },
     name: {
       type: String,
-      required: true,
-      trim: true
+      required: true
     },
     age: {
       type: Number,

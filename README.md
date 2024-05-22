@@ -1,55 +1,91 @@
-# ROCK THE CODE PROYECT 6
+````markdown
+# 🎸 Proyecto 8 Rock the Code 🎸
 
-## CRUD API Rest
+## 🚀 Technologies Used
 
-For the creation of my REST API, I have decided on the theme of Dragon Ball Z Families.
+- **Node.js**
+- **Express.js**
+- **MongoDB**
 
-My initial idea is that adults can register, and once they exist in the database, their children can be registered.
+## 📦 Dependencies
 
-In case something fails, an error will be shown depending on the case.
+```json
+"dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.5"
+  },
+"devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+```
+````
 
-We can view all characters, create new characters, edit them, and delete them, keeping in mind that if they have children, their children will also be deleted.
+## 📜 Scripts
 
-## Features
+- `start`: `node index.js`
+- `dev`: `nodemon index.js`
+- `seed`: `node ./utils/seed/familySeed.js`
 
-The routes for the API requests are:
+The `npm run seed` script adds 5 people to the database.
 
-### ROUTES PEOPLE:
+## 🌐 API Routes
 
-app.get('/', allPeople), Get all Characters + populate them with their children, extracting the username of each child..
+### Personas
 
-app.post('/register', registerPeople), Register Characters.
+- **Base URL**: `/api/people`
+  - `GET /`: Fetch all people (`allPeople`)
+  - `POST /register`: Register a new person (`registerPeople`)
+  - `PUT /edit/:_id`: Update a person by ID (`updatePeople`)
+  - `DELETE /delete/:_id`: Delete a person by ID (`deletePeople`)
 
-app.put('/edit/:\_id', updatePeople), Edit Characters.
+### Children
 
-app.delete('/delete/:\_id', deletePeople), Delet Characters.
+- **Base URL**: `/api/children`
+  - `GET /`: Fetch all children (`allChildren`)
+  - `POST /register`: Register a new child (`registerChildren`)
+  - `PUT /update/:_id`: Update a child by ID (`updateChildren`)
+  - `DELETE /delete/:_id`: Delete a child by ID (`deleteChildren`)
 
-### ROUTES CHILDRENS:
+## 📄 Sample Data
 
-app.get('/children', allChildren), Get all Characters.
+### Create a Person
 
-app.post('/children/register', registerChildren), register Characters.
-Example register:
+To create a person, send the following JSON payload:
+
+```json
 {
-"userName":"Ejemplo",
-"alias":"hija",
-"name":"name",
-"age":10,
-"parent":"Vegeta"
+  "userName": "Piccolo",
+  "alias": "Maestro",
+  "name": "Juan Carlos",
+  "age": 18
 }
+```
 
-## The commands to start the project:
+> Note: Age must be greater than 18.
 
-npm run start: "node index.js".
+### Create a Child
 
-npm run dev: "nodemon index.js".
+To create a child, send the following JSON payload:
 
-seed": "node utils/seed/family.seed.js".
+```json
+{
+  "userName": "Krillin",
+  "alias": "Guerrero",
+  "name": "LUIS",
+  "age": 12,
+  "parent": "Piccolo"
+}
+```
 
-## CONDITIONS TO REGISTER
+> Note: The `parent` field must match the `userName` of an existing person, otherwise an error will occur.
 
-To input data into the Family model, the userName is considered a unique identifier and should be older than 18 years old.
+## 👨‍💻 Author
 
-For children, to input data into the Children model, the userName is considered a unique identifier and should be saved with one of their parents, by inputting their userName.
+Work done by Daniele Mazzola
 
-Powered by Daniele Mazzola
+🔗 [GitHub Repository](https://github.com/danielemazzola/proyect_6_api_rest)
+
+```
+
+```
