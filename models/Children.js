@@ -24,7 +24,7 @@ const ChildrenSchema = new Schema(
     },
     idParent: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'People',
+      ref: 'Character',
       required: true
     }
   },

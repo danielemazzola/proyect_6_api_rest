@@ -1,8 +1,8 @@
 require('dotenv').config()
-const { People } = require('../../models/Family')
+const { Character } = require('../../models/Characters')
 const mongoose = require('mongoose')
 
-const family = [
+const characters = [
   {
     userName: 'Vegeta',
     alias: 'príncipe',
@@ -38,14 +38,14 @@ const family = [
 mongoose
   .connect(process.env.DB_URL)
   .then(async () => {
-    const allPeople = await People.find()
-    if (allPeople.length) {
-      await People.collection.drop()
+    const allCharacters = await Character.find()
+    if (allCharacters.length) {
+      await Character.collection.drop()
     }
   })
   .catch((err) => console.log(`Error deleting data: ${err}`))
   .then(async () => {
-    await People.insertMany(family)
+    await Character.insertMany(characters)
   })
   .catch((err) => console.log(`Error creating data: ${err}`))
   // Por último nos desconectaremos de la DB.

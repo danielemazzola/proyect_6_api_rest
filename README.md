@@ -23,7 +23,7 @@
 
 - `start`: `node index.js`
 - `dev`: `nodemon index.js`
-- `seed`: `node ./utils/seed/familySeed.js`
+- `seed`: `node ./utils/seed/characterSeed.js`
 
 The `npm run seed` script adds 5 people to the database.
 
@@ -31,11 +31,11 @@ The `npm run seed` script adds 5 people to the database.
 
 ### Personas
 
-- **Base URL**: `/api/people`
-  - `GET /`: Fetch all people (`allPeople`)
-  - `POST /register`: Register a new person (`registerPeople`)
-  - `PUT /edit/:_id`: Update a person by ID (`updatePeople`)
-  - `DELETE /delete/:_id`: Delete a person by ID (`deletePeople`)
+- **Base URL**: `/api/character`
+  - `GET /`: Fetch all characters (`allCharacters`)
+  - `POST /register`: Register a new character (`registerCharacter`)
+  - `PUT /edit/:_id`: Update a character by ID (`updateCharacter`)
+  - `DELETE /delete/:_id`: Delete a character by ID (`deleteCharacter`)
 
 ### Children
 

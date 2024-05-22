@@ -1,7 +1,6 @@
 const { Children } = require('../models/Children')
-const { People } = require('../models/Family')
+const { Character } = require('../models/Characters')
 
-//GET ALL USERS
 const allChildren = async (req, res, next) => {
   const OK = 'Todos los niños aqui👶👧'
   const KO = 'No hay niños aún registrados😢'
@@ -16,29 +15,29 @@ const allChildren = async (req, res, next) => {
     return res.status(400).json(`Error en la petición: ${error}`)
   }
 }
-
-//CRETAE NEW USER
 const registerChildren = async (req, res, next) => {
   const KO = 'Ya existe el username, prueba con otro😉'
   const KO_PARENT = 'Su familiar no existe, es huérfano?🤔'
   const OK = 'Usuario creado😎'
   try {
     const { userName, parent } = req.body
-    const parentFamily = await People.findOne({ userName: parent })
-    if (!parentFamily) return res.status(400).json({ message: KO_PARENT })
+    const parentCharacter = await Character.findOne({ userName: parent })
+    if (!parentCharacter) return res.status(400).json({ message: KO_PARENT })
     const existUserName = await Children.findOne({ userName })
     if (existUserName) return res.status(400).json({ message: KO })
-
     const newChildren = new Children({
       userName: req.body.userName,
       alias: req.body.alias,
       name: req.body.name,
       age: req.body.age,
-      idParent: parentFamily._id
+      idParent: parentCharacter._id
     })
     const saveChildren = await newChildren.save()
-    parentFamily.idChildrens = [...parentFamily.idChildrens, saveChildren._id]
-    await parentFamily.save()
+    parentCharacter.idChildrens = [
+      ...parentCharacter.idChildrens,
+      saveChildren._id
+    ]
+    await parentCharacter.save()
     return res.status(201).json({ message: OK, saveChildren })
   } catch (error) {
     return res.status(400).json(`Error en la petición: ${error}`)
@@ -63,7 +62,7 @@ const deleteChildren = async (req, res) => {
   const { _id } = req.params
   const existChildren = await Children.findById(_id)
   if (!existChildren) return res.status(404).json('NOT EXIST CHILDREN')
-  const parent = await People.findById(existChildren.idParent)
+  const parent = await Character.findById(existChildren.idParent)
   if (!parent)
     return res.status(404).json('THERE WAS A PROBLEM, PLEASE TRY AGAIN')
   parent.idChildrens = parent.idChildrens.filter(

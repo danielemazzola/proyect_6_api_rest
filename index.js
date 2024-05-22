@@ -2,7 +2,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 const express = require('express')
 const { CONNECTDB } = require('./config/db.js')
-const peopleRoute = require('./routes/peoplesRoute.js')
+const charactersRoute = require('./routes/charactersRoute.js')
 const childrensRoute = require('./routes/childrensRoute.js')
 
 const app = express()
@@ -12,7 +12,7 @@ CONNECTDB()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/people', peopleRoute)
+app.use('/api/character', charactersRoute)
 app.use('/api/children', childrensRoute)
 
 // GET ERROR URL
