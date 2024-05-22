@@ -8,7 +8,7 @@
 
 ## 📦 Dependencies
 
-```json
+```
 "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -18,8 +18,6 @@
     "nodemon": "^3.1.0"
   }
 ```
-
-````
 
 ## 📜 Scripts
 
@@ -53,7 +51,7 @@ The `npm run seed` script adds 5 people to the database.
 
 To create a person, send the following JSON payload:
 
-```json
+```
 {
   "userName": "Piccolo",
   "alias": "Maestro",
@@ -85,6 +83,3 @@ To create a child, send the following JSON payload:
 Work done by Daniele Mazzola
 
 🔗 [GitHub Repository](https://github.com/danielemazzola/proyect_6_api_rest)
-
-```
-````
