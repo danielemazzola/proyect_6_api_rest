@@ -41,11 +41,19 @@ const registerCharacter = async (req, res, next) => {
 //UPDATE USER
 const updateCharacter = async (req, res, next) => {
   const ERROR = 'El usuario no existe😂'
+  const ERROR_CHILDREN = 'El children no existe🤔'
   const OK = 'Usuario modificado😉'
+  const KO_UPDATE_CHILDREN = 'El children ya existe dentro del array😉'
   try {
     const { _id } = req.params
     const existCharacter = await Character.findById(_id)
     if (!existCharacter) return res.status(404).json({ message: ERROR })
+    const existChildren = await Children.findById(req.body.idChildrens)
+    if (!existChildren) return res.status(404).json({ message: ERROR_CHILDREN })
+    const existIdInArrayCharacter = existCharacter.idChildrens.some(
+      (val) => val.toString() === existChildren._id.toString()
+    )
+    if (existIdInArrayCharacter) return res.status(409).json(KO_UPDATE_CHILDREN)
     const update = {
       userName:
         req.body.userName !== undefined
@@ -55,14 +63,13 @@ const updateCharacter = async (req, res, next) => {
         req.body.alias !== undefined ? req.body.alias : existCharacter.alias,
       name: req.body.name !== undefined ? req.body.name : existCharacter.name,
       age: req.body.age !== undefined ? req.body.age : existCharacter.age,
-      agidChildrense:
-        req.body.agidChildrense !== undefined
-          ? [...existCharacter.idChildrens, req.body.agidChildrense]
-          : [existCharacter.agidChildrense]
+      idChildrens:
+        req.body.idChildrens !== undefined
+          ? [...existCharacter.idChildrens, existChildren._id]
+          : [...existCharacter.idChildrens]
     }
-    const updateCharacter = await Character.findByIdAndUpdate(_id, req.body, {
-      new: true,
-      runValidators: true
+    const updateCharacter = await Character.findByIdAndUpdate(_id, update, {
+      new: true
     })
     return res.status(200).json({ message: OK, updateCharacter })
   } catch (error) {
